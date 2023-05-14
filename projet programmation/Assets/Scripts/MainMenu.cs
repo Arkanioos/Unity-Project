@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public GameObject optionsMenu;
+
+    public GameObject mainMenu;
+
     public void PlayGame()
     {
         LoadNextLevel();
@@ -31,5 +35,16 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
+    }
+
+    IEnumerator EnableTransition()
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        mainMenu.gameObject.SetActive(false);
+
+        optionsMenu.gameObject.SetActive(true);
     }
 }
