@@ -1280,6 +1280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 1093197620}
   transitionTime: 1
+  optionsMenu: {fileID: 0}
+  mainMenu: {fileID: 0}
 --- !u!1 &549522603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 8011043789034874291, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8011043789034874301, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4291,11 +4297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8011043790019183599, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 2878.6616
       objectReference: {fileID: 0}
     - target: {fileID: 8011043790019183599, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 404.586
+      value: 1697.2454
       objectReference: {fileID: 0}
     - target: {fileID: 8011043790019183599, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_LocalScale.x
@@ -4327,11 +4333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8011043790019183599, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 309.71207
+      value: 661.7528
       objectReference: {fileID: 0}
     - target: {fileID: 8011043790019183599, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -132.22333
+      value: -3.2313
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 302994bba1499f8438cfe16793e5cf36, type: 3}
