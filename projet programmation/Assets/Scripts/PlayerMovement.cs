@@ -3,19 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Characters
 {
-
-    private float horizontal;
-    private float speed = 6f;
-    private float jumpingPower = 16f;
-    private bool isFacingRight = true;
-
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
-
-    public Animator animator;
 
 
     void Update()
@@ -50,23 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    private void Flip()
-    {
-        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }
-
-    protected void Move()
+    override protected void Move()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
