@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Characters : Entity
+abstract public class Characters : Entity
 {
+    [SerializeField] protected Transform groundCheck;
+    [SerializeField] protected LayerMask groundLayer;
+
     protected float horizontal;
     protected float speed = 6f;
     protected float jumpingPower = 16f;
     protected bool isFacingRight = true;
-    public Player player;
 
 
     void Start()
@@ -22,18 +24,7 @@ public class Characters : Entity
         
     }
 
-    override protected void Move()
-    { 
-    }
+    abstract protected void Flip();
 
-    override protected void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }
+    abstract protected void Move();
 }

@@ -5,10 +5,12 @@ using UnityEngine;
 abstract public class Entity : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
-    [SerializeField] protected Transform groundCheck;
-    [SerializeField] protected LayerMask groundLayer;
 
     protected Animator animator;
+    public Player player;
+
+    public Animator transition;
+    public float transitionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,14 +21,5 @@ abstract public class Entity : MonoBehaviour
     void Update()
     {
         
-    }
-
-    abstract protected void Move();
-
-    abstract protected void Flip();
-
-    protected bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 }
