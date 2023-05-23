@@ -8,6 +8,7 @@ public class Characters : Entity
     protected float speed = 6f;
     protected float jumpingPower = 16f;
     protected bool isFacingRight = true;
+    public Player player;
 
 
     void Start()

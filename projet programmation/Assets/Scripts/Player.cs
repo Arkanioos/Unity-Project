@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Player : Characters
 {
 
-    public int maxHealth = 100;
+    protected int maxHealth;
     public int currentHealth;
 
     public HealthBar healthBar;
 
     void Start()
     {
+        maxHealth = 3;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -49,11 +53,16 @@ public class Player : Characters
         Move();
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+
+        if(currentHealth==0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     override protected void Move()
@@ -62,4 +71,26 @@ public class Player : Characters
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag=="Ennemy"|| collision.tag=="Trap")
+        {
+            TakeDamage(1);
+        }
+
+        if(collision.tag=="End")
+        {
+            SceneManager.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
+
 }
