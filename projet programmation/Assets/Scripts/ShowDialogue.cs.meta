@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:projet programmation/Assets/Scripts/ShowDialogue.cs.meta
 guid: a4922a23014f8a842868d1f72c718c31
+========
+guid: 8b77c54b581a757498de7a3e988cbb69
+>>>>>>>> 6933bc136e0c7ead74e0b82dd650ab5f5201ab24:projet programmation/Assets/Jump.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

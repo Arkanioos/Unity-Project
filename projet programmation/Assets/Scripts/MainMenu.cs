@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public Animator transition;
 
-    public float transitionTime = 1f;
+    private float transitionTime = 1f;
 
     public GameObject optionsMenu;
 
