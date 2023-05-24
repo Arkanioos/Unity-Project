@@ -6,12 +6,9 @@ TagManager:
   tags:
   - Map
   - PNG
-<<<<<<< HEAD
-=======
   - Trap
   - Ennemy
   - End
->>>>>>> 6933bc136e0c7ead74e0b82dd650ab5f5201ab24
   layers:
   - Default
   - TransparentFX

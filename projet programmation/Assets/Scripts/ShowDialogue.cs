@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShowDialogue : MonoBehaviour
 {
+    public AudioManager audioManager;
+
     public GameObject dialogue;
     void Start()
     {
@@ -19,10 +21,12 @@ public class ShowDialogue : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         dialogue.SetActive(true);
+        audioManager.Play("PopUp");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         dialogue.SetActive(false);
+        audioManager.Play("PopUp");
     }
 }

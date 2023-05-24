@@ -12,6 +12,8 @@ public class OptionsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
+    public AudioManager audioManager;
+
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -57,5 +59,10 @@ public class OptionsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void PlaySound()
+    {
+        audioManager.Play("ClickMenu");
     }
 }

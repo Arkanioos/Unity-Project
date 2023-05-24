@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-<<<<<<< HEAD
-=======
 using UnityEngine.SceneManagement;
->>>>>>> 6933bc136e0c7ead74e0b82dd650ab5f5201ab24
 
 public class Player : Characters
 {
@@ -14,6 +11,8 @@ public class Player : Characters
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    public AudioManager audioManager;
 
     void Start()
     {
@@ -41,6 +40,7 @@ public class Player : Characters
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             animator.SetBool("isJumping", true);
+            audioManager.Play("PlayerJump");
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -49,14 +49,6 @@ public class Player : Characters
         }
 
         Flip();
-<<<<<<< HEAD
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-=======
->>>>>>> 6933bc136e0c7ead74e0b82dd650ab5f5201ab24
     }
 
     private void FixedUpdate()
@@ -70,10 +62,12 @@ public class Player : Characters
 
         healthBar.SetHealth(currentHealth);
 
-        if(currentHealth==0)
+        if(currentHealth==0 || currentHealth < 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        audioManager.Play("PlayerHurt");
     }
 
     override protected void Move()
@@ -82,8 +76,6 @@ public class Player : Characters
 
         animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
-<<<<<<< HEAD
-=======
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -114,5 +106,4 @@ public class Player : Characters
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
->>>>>>> 6933bc136e0c7ead74e0b82dd650ab5f5201ab24
 }

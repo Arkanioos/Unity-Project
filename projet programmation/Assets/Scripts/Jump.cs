@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Jump : Entity
 {
+    public AudioManager audioManager;
+    
 
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -22,6 +23,7 @@ public class Jump : Entity
         if (collision.tag == "Player")
         {
             rb.velocity = new Vector2(rb.velocity.x, 20);
+            audioManager.Play("PlayerBoost");
         }
     }
 }

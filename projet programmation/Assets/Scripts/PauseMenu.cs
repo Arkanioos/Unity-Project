@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    // Update is called once per frame
+    public AudioManager audioManager;
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -48,5 +48,10 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void PlaySound()
+    {
+        audioManager.Play("ClickMenu");
     }
 }
